@@ -13,14 +13,22 @@ import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class spawn implements Listener {
+	// 监听实体生成
 	  @EventHandler
 	  public void mobSpawn(final CreatureSpawnEvent e) {
+		  // 延时任务
 		  Bukkit.getScheduler().scheduleSyncDelayedTask(main.getPlugin(main.class), new Runnable() {
 			  public void run() {
+				  
+				  // mob1
+				  // 判断
 				  if ( (e.getEntity().getCustomName() != null) && (e.getEntity().getCustomName().equals(main.instance.getConfig().getString("mobs.mob1.name").replaceAll("&", "§"))) ) {
 					  try {
+						  // 模型
 						  e.getEntity().getEquipment().setHelmet(mobs.mob1);
+						  // 隐身
 						  e.getEntity().addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 2147483647, 1));
+						  // 全息显示跟随
 						  final Hologram hologram = HologramsAPI.createHologram(main.getPlugin(main.class), e.getEntity().getLocation().add(0.0D, 2.5D, 0.0D));
 				            hologram.appendTextLine(main.instance.getConfig().getString("mobs.mob1.name").replaceAll("&", "§"));
 				            new BukkitRunnable() {
@@ -37,6 +45,9 @@ public class spawn implements Listener {
 					  }
 				  }
 			  }
+			  
+			  // mob2
+			  
 		  }, 5L);
 	  }
 }

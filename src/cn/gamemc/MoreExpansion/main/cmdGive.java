@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 public class cmdGive implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (cmd.getName().equalsIgnoreCase("morexgive")) {
-			if (!(sender instanceof Player)) {
+			if ( !(sender instanceof Player) ) {
 				sender.sendMessage("不能在控制台使用");
 				return true;
 		}

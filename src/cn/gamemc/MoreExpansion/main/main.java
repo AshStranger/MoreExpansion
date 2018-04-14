@@ -10,10 +10,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class main extends JavaPlugin {
 	
+	// 赋值
 	FileConfiguration config = getConfig();
 	public static JavaPlugin instance;
 	
 	public void onEnable() {
+		// 查找HolographicDisplays
 		if ( !Bukkit.getPluginManager().isPluginEnabled("HolographicDisplays") ) {
 			getLogger().severe("没有找到HolographicDisplays插件");
 			getLogger().severe("[MoreExpansion] 已关闭");
@@ -24,12 +26,13 @@ public class main extends JavaPlugin {
 				instance = this;
 		}
 		
+		// 注册
 		getServer().getPluginManager().registerEvents(new damage(), this);
 	    getServer().getPluginManager().registerEvents(new spawn(), this);
 	    Bukkit.getPluginCommand("morexhelp").setExecutor(new cmdHelp());
 	    Bukkit.getPluginCommand("morexgive").setExecutor(new cmdGive());
 	    
-
+	    // 加载
 	    configMain.base();
 	    configMain.reloadItem();
 	    arms.arm();
