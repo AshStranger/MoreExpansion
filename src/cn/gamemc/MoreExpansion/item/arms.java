@@ -23,6 +23,7 @@ public class arms {
 	    arm1Lore.add("¡ìa¡ìf¡ìf¡ìf¡ìa¡ìa¡ì1");
 	    arm1Lore.add(loreBuff.loreAttb());
 	    arm1Lore.add(loreBuff.loreAttack(main.instance.getConfig().getInt("arms.arm1.damage")));
+	    arm1Lore.add(loreBuff.loreAttackCooldown(100));
 	    arm1Lore.add(loreBuff.blank());
 	    arm1Meta.setLore(arm1Lore);
 	    arm1.setItemMeta(arm1Meta);

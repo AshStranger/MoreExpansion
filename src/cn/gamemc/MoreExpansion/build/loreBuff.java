@@ -1,6 +1,7 @@
 package cn.gamemc.MoreExpansion.build;
 
 public class loreBuff {
+	
 	  public static String blank() {
 		  String blank = "°Ïf                                        ";
 		  return blank;
@@ -15,4 +16,10 @@ public class loreBuff {
 		    String loreAttack = "°Ïf       °Ï7°Ïl[°Ïf°Ïl-°Ï7°Ïl]°Ïf °Ï6…À∫¶ °Ïf" + damage;
 		    return loreAttack;
 	  }
+	  
+	  public static String loreAttackCooldown(int cooldown) {
+		    String loreAttack = "°Ïf       °Ï7°Ïl[°Ïf°Ïl-°Ï7°Ïl]°Ïf °Ï6π•ª˜¿‰»¥°Ïf" + cooldown;
+		    return loreAttack;
+	  }
+	  
 }

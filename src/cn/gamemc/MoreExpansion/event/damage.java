@@ -1,8 +1,10 @@
 package cn.gamemc.MoreExpansion.event;
 
+import cn.gamemc.MoreExpansion.build.buildPacket;
 import cn.gamemc.MoreExpansion.main.main;
-import com.connorlinfoot.titleapi.TitleAPI;
+
 import java.util.List;
+
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -21,7 +23,7 @@ public class damage implements Listener {
 				List<String> lore = player.getEquipment().getItemInMainHand().getItemMeta().getLore();
 				if ( lore != null ) {
 					for (String s : lore) {
-						// …À∫¶ Ù–‘
+						//…À∫¶ Ù–‘
 						if (s.startsWith("°Ïf       °Ï7°Ïl[°Ïf°Ïl-°Ï7°Ïl]°Ïf °Ï6…À∫¶")) {
 		        			String damageInt = s.replace("°Ïf       °Ï7°Ïl[°Ïf°Ïl-°Ï7°Ïl]°Ïf °Ï6…À∫¶ °Ïf", "");
 		        			int damage = Integer.valueOf(damageInt).intValue();
@@ -31,8 +33,10 @@ public class damage implements Listener {
 				}
 			}
 			// µØƒªª˜…±…À∫¶œ‘ æ
-			if ( main.instance.getConfig().getBoolean("Settings.danageTitle") ) {
-				TitleAPI.sendTitle(player, Integer.valueOf(0), Integer.valueOf(10), Integer.valueOf(0), "", "°Ïc- °Ï6" + e.getDamage());
+			if ( main.instance.getConfig().getBoolean("Settings.danageTitle")==true ) {
+				if ( main.pm!=null ) {
+					buildPacket.sendTitle(player, "", "°Ïc- °Ï6" + e.getDamage(), 0, 10, 0);
+				}
 			}
 		}
 	}

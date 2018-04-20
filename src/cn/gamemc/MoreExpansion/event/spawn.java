@@ -29,18 +29,20 @@ public class spawn implements Listener {
 						  // 隐身
 						  e.getEntity().addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 2147483647, 1));
 						  // 全息显示跟随
-						  final Hologram hologram = HologramsAPI.createHologram(main.getPlugin(main.class), e.getEntity().getLocation().add(0.0D, 2.5D, 0.0D));
-				            hologram.appendTextLine(main.instance.getConfig().getString("mobs.mob1.name").replaceAll("&", "§"));
-				            new BukkitRunnable() {
-				            	public void run() {
-				            		if ( !e.getEntity().isDead() ) {
-				            			hologram.teleport(e.getEntity().getLocation().add(0.0D, 2.5D, 0.0D));
-				            		}else {
-				            			hologram.delete();
-				            			cancel();
-				            		}
-				            	}
-				            }.runTaskTimer(main.getPlugin(main.class), 1L, 1L);
+						  if ( Bukkit.getPluginManager().isPluginEnabled("HolographicDisplays") ) {
+							  final Hologram hologram = HologramsAPI.createHologram(main.getPlugin(main.class), e.getEntity().getLocation().add(0.0D, 2.5D, 0.0D));
+					            hologram.appendTextLine(main.instance.getConfig().getString("mobs.mob1.name").replaceAll("&", "§"));
+					            new BukkitRunnable() {
+					            	public void run() {
+					            		if ( !e.getEntity().isDead() ) {
+					            			hologram.teleport(e.getEntity().getLocation().add(0.0D, 2.5D, 0.0D));
+					            		}else {
+					            			hologram.delete();
+					            			cancel();
+					            		}
+					            	}
+					            }.runTaskTimer(main.getPlugin(main.class), 1L, 1L);  
+						  }
 					  }catch (Exception localException) {
 					  }
 				  }

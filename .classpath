@@ -4,6 +4,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="E:/JavaPlugin/paper1112.jar"/>
 	<classpathentry kind="lib" path="E:/JavaPlugin/HolographicDisplays-2.2.6-全息.jar"/>
-	<classpathentry kind="lib" path="E:/JavaPlugin/TitleAPI-1.7.5.jar"/>
+	<classpathentry kind="lib" path="E:/JavaPlugin/ProtocolLib-4.3.0-前置.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

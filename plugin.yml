@@ -2,7 +2,7 @@ name: MoreExpansion
 main: cn.gamemc.MoreExpansion.main.main
 version: 0.0.1
 author: ashStranger
-softdepend: [TitleAPI,HolographicDisplays]
+softdepend: [HolographicDisplays,ProtocolLib]
 commands:
   morexhelp: 
     description: "帮助"
