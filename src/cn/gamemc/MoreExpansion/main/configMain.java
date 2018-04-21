@@ -10,7 +10,8 @@ public class configMain {
 			main.instance.saveDefaultConfig();
 	    }
 		// ª˘¥°∂¡»°‘ÿ»Î
-		main.instance.getConfig().set("Settings.danageTitle", Boolean.valueOf(main.instance.getConfig().getBoolean("Settings.danageTitle")));
+		main.instance.getConfig().set("Settings.damageTitle", Boolean.valueOf(main.instance.getConfig().getBoolean("Settings.damageTitle")));
+		main.instance.getConfig().set("Settings.damageHologram", Boolean.valueOf(main.instance.getConfig().getBoolean("Settings.damageHologram")));
 	}
 	
 	public static void reloadItem() {

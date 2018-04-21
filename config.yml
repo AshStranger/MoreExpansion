@@ -1,16 +1,19 @@
-name: MoreExpansion
-main: cn.gamemc.MoreExpansion.main.main
-version: 0.0.1
-author: ashStranger
-softdepend: [TitleAPI,HolographicDisplays]
-commands:
-  morexhelp: 
-    description: "帮助"
-    usage: /morexhelp
-    permission: "moreexpansion.help"
-    permission-message: "§c无权使用此命令"
-  morexgive:
-    description: "给予"
-    usage: /morexgive
-    permission: "moreexpansion.give"
-    permission-message: "§c无权使用此命令" 
+Settings:
+  damageTitle: false
+  damageHologram: false
+arms:
+  arm1:
+    enable: true
+    damage: 8
+  arm2:
+    enable: true
+    damage: 8
+  arm3:
+    enable: true
+    damage: 8
+  arm4:
+    enable: true
+    damage: 8
+mobs:
+  mob1:
+    name: '&aMOB-1'

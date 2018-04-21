@@ -5,11 +5,15 @@ import cn.gamemc.MoreExpansion.main.main;
 
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+
+import com.gmail.filoghost.holographicdisplays.api.Hologram;
+import com.gmail.filoghost.holographicdisplays.api.HologramsAPI;
 
 public class damage implements Listener {
 	@EventHandler
@@ -33,9 +37,22 @@ public class damage implements Listener {
 				}
 			}
 			// µ¯Ä»»÷É±ÉËº¦ÏÔÊ¾
-			if ( main.instance.getConfig().getBoolean("Settings.danageTitle")==true ) {
+			if ( main.instance.getConfig().getBoolean("Settings.damageTitle")==true ) {
 				if ( main.pm!=null ) {
 					buildPacket.sendTitle(player, "", "¡ìc- ¡ì6" + e.getDamage(), 0, 10, 0);
+				}
+			}
+			// È«Ï¢»÷É±ÉËº¦ÏÔÊ¾
+			if ( Bukkit.getPluginManager().isPluginEnabled("HolographicDisplays") ) {
+				if ( main.instance.getConfig().getBoolean("Settings.damageHologram")==true ) {
+					Hologram damageHologram = HologramsAPI.createHologram(main.getPlugin(main.class), e.getEntity().getLocation().add(0.0D, 3D, 0.0D));
+					damageHologram.appendTextLine("¡ìc- ¡ì6" + e.getDamage());
+					// ÑÓÊ±ÈÎÎñ
+					  Bukkit.getScheduler().scheduleSyncDelayedTask(main.getPlugin(main.class), new Runnable() {
+						  public void run() {
+							  damageHologram.delete();
+						  }
+					  }, 10L);
 				}
 			}
 		}
