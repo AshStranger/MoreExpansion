@@ -14,23 +14,23 @@ public class arms {
   public static ItemStack arm2 = new ItemStack(Material.DIAMOND_SWORD);
   public static ItemStack arm3 = new ItemStack(Material.DIAMOND_SWORD);
   public static ItemStack arm4 = new ItemStack(Material.DIAMOND_SWORD);
+  public static ItemStack arm5 = new ItemStack(Material.DIAMOND_SWORD);
   
   public static void arm() {
 	    ItemMeta arm1Meta = arm1.getItemMeta();
-	    arm1Meta.setDisplayName("°Ïb¿∂π‚Ω£");
-	    arm1Meta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ATTRIBUTES });
+	    arm1Meta.setDisplayName(main.instance.getConfig().getString("arms.arm1.name").replaceAll("&", "°Ï"));
+	    arm1Meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 	    List<String> arm1Lore = new ArrayList<String>();
 	    arm1Lore.add("°Ïa°Ïf°Ïf°Ïf°Ïa°Ïa°Ï1");
 	    arm1Lore.add(loreBuff.loreAttb());
 	    arm1Lore.add(loreBuff.loreAttack(main.instance.getConfig().getInt("arms.arm1.damage")));
-	    arm1Lore.add(loreBuff.loreAttackCooldown(100));
 	    arm1Lore.add(loreBuff.blank());
 	    arm1Meta.setLore(arm1Lore);
 	    arm1.setItemMeta(arm1Meta);
 	    
 	    ItemMeta arm2Meta = arm2.getItemMeta();
-	    arm2Meta.setDisplayName("°Ïc∫Ïπ‚Ω£");
-	    arm2Meta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ATTRIBUTES });
+	    arm2Meta.setDisplayName(main.instance.getConfig().getString("arms.arm2.name").replaceAll("&", "°Ï"));
+	    arm2Meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 	    List<String> arm2Lore = new ArrayList<String>();
 	    arm2Lore.add("°Ïa°Ïf°Ïf°Ïf°Ïa°Ïa°Ï2");
 	    arm2Lore.add(loreBuff.loreAttb());
@@ -40,8 +40,8 @@ public class arms {
 	    arm2.setItemMeta(arm2Meta);
 	    
 	    ItemMeta arm3Meta = arm3.getItemMeta();
-	    arm3Meta.setDisplayName("°Ïa¬Ãπ‚Ω£");
-	    arm3Meta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ATTRIBUTES });
+	    arm3Meta.setDisplayName(main.instance.getConfig().getString("arms.arm3.name").replaceAll("&", "°Ï"));
+	    arm3Meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 	    List<String> arm3Lore = new ArrayList<String>();
 	    arm3Lore.add("°Ïa°Ïf°Ïf°Ïf°Ïa°Ïa°Ï3");
 	    arm3Lore.add(loreBuff.loreAttb());
@@ -51,8 +51,8 @@ public class arms {
 	    arm3.setItemMeta(arm3Meta);
 	    
 	    ItemMeta arm4Meta = arm4.getItemMeta();
-	    arm4Meta.setDisplayName("°Ïeª∆π‚Ω£");
-	    arm4Meta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ATTRIBUTES });
+	    arm4Meta.setDisplayName(main.instance.getConfig().getString("arms.arm4.name").replaceAll("&", "°Ï"));
+	    arm4Meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 	    List<String> arm4Lore = new ArrayList<String>();
 	    arm4Lore.add("°Ïa°Ïf°Ïf°Ïf°Ïa°Ïa°Ï4");
 	    arm4Lore.add(loreBuff.loreAttb());
@@ -60,5 +60,16 @@ public class arms {
 	    arm4Lore.add(loreBuff.blank());
 	    arm4Meta.setLore(arm4Lore);
 	    arm4.setItemMeta(arm4Meta);
+	    
+	    ItemMeta arm5Meta = arm5.getItemMeta();
+	    arm5Meta.setDisplayName(main.instance.getConfig().getString("arms.arm5.name").replaceAll("&", "°Ï"));
+	    arm5Meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+	    List<String> arm5Lore = new ArrayList<String>();
+	    arm5Lore.add("°Ïa°Ïf°Ïf°Ïf°Ïa°Ïa°Ï5");
+	    arm5Lore.add(loreBuff.loreAttb());
+	    arm5Lore.add(loreBuff.loreAttack(main.instance.getConfig().getInt("arms.arm5.damage")));
+	    arm5Lore.add(loreBuff.blank());
+	    arm5Meta.setLore(arm5Lore);
+	    arm5.setItemMeta(arm5Meta);
   }
 }

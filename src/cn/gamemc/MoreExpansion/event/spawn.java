@@ -48,10 +48,31 @@ public class spawn implements Listener {
 					  }catch (Exception localException) {
 					  }
 				  }
-			  }
-			  
-			  // mob2
-			  
+				  
+				  // mob2
+				  if ( (e.getEntity().getCustomName() != null) && (e.getEntity().getCustomName().equals(main.instance.getConfig().getString("mobs.mob2.name").replaceAll("&", "¡ì"))) ) {
+					  try {
+						  e.getEntity().getEquipment().setHelmet(mobs.mob2);
+						  e.getEntity().addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 2147483647, 1));
+						  if ( Bukkit.getPluginManager().isPluginEnabled("HolographicDisplays") ) {
+							  final Hologram hologram = HologramsAPI.createHologram(main.getPlugin(main.class), e.getEntity().getLocation().add(0.0D, 3.5D, 0.0D));
+					            hologram.appendTextLine(main.instance.getConfig().getString("mobs.mob2.name").replaceAll("&", "¡ì"));
+					            new BukkitRunnable() {
+					            	public void run() {
+					            		if ( !e.getEntity().isDead() ) {
+					            			hologram.teleport(e.getEntity().getLocation().add(0.0D, 3.5D, 0.0D));
+					            		}else {
+					            			hologram.delete();
+					            			cancel();
+					            		}
+					            	}
+					            }.runTaskTimer(main.getPlugin(main.class), 1L, 1L);  
+						  }
+					  }catch (Exception localException) {
+					  }
+				  }
+				  
+			  }		  
 		  }, 5L);
 	  }
 }

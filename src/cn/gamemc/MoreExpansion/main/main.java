@@ -1,8 +1,10 @@
 package cn.gamemc.MoreExpansion.main;
 
 import cn.gamemc.MoreExpansion.event.damage;
+import cn.gamemc.MoreExpansion.event.eat;
 import cn.gamemc.MoreExpansion.event.spawn;
 import cn.gamemc.MoreExpansion.item.arms;
+import cn.gamemc.MoreExpansion.item.food;
 import cn.gamemc.MoreExpansion.item.mobs;
 
 import org.bukkit.Bukkit;
@@ -23,22 +25,22 @@ public class main extends JavaPlugin {
 	public void onEnable() {
 		
 		// 插件加载信息
-		getLogger().severe("[ - [MoreExpansion] 正在检查 - ]");
+		getLogger().info("[ - [MoreExpansion] 正在检查 - ]");
 		if ( !Bukkit.getPluginManager().isPluginEnabled("ProtocolLib") ) {
-			getLogger().severe("  -  未安装插件：ProtocolLib");
+			getLogger().info("  -  未安装插件：ProtocolLib");
 		}else {
-			getLogger().severe("  -  已安装插件：ProtocolLib");
+			getLogger().info("  -  已安装插件：ProtocolLib");
 			pm = ProtocolLibrary.getProtocolManager();
 		}
 		if ( !Bukkit.getPluginManager().isPluginEnabled("HolographicDisplays") ) {
-			getLogger().severe("  -  未安装插件：HolographicDisplays");
+			getLogger().info("  -  未安装插件：HolographicDisplays");
 			}else {
-				getLogger().severe("  -  已安装插件：HolographicDisplays");
+				getLogger().info("  -  已安装插件：HolographicDisplays");
 		}
-		getLogger().severe("  -  插件当前版本：0.0.1");
-		getLogger().severe("  -  搭配资源包版本：0.0.1");
-		getLogger().severe("[ - [MoreExpansion] 检查完毕 - ]");
-		getLogger().severe("[ - [MoreExpansion] 正常运行 - ]");
+		getLogger().info("  -  插件当前版本：0.0.1");
+		getLogger().info("  -  搭配资源包版本：0.0.1");
+		getLogger().info("[ - [MoreExpansion] 检查完毕 - ]");
+		getLogger().info("[ - [MoreExpansion] 正常运行 - ]");
 		
 		// 赋值
 		instance = this;
@@ -46,6 +48,7 @@ public class main extends JavaPlugin {
 		// 注册
 		getServer().getPluginManager().registerEvents(new damage(), this);
 	    getServer().getPluginManager().registerEvents(new spawn(), this);
+	    getServer().getPluginManager().registerEvents(new eat(), this);
 	    Bukkit.getPluginCommand("morexhelp").setExecutor(new cmdHelp());
 	    Bukkit.getPluginCommand("morexgive").setExecutor(new cmdGive());
 	    
@@ -54,6 +57,7 @@ public class main extends JavaPlugin {
 	    configMain.reloadItem();
 	    arms.arm();
 	    mobs.mob();
+	    food.allFood();
 	}
 	
 	@Override

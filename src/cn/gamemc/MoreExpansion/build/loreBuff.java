@@ -17,9 +17,4 @@ public class loreBuff {
 		    return loreAttack;
 	  }
 	  
-	  public static String loreAttackCooldown(int cooldown) {
-		    String loreAttack = "¡ìf       ¡ì7¡ìl[¡ìf¡ìl-¡ì7¡ìl]¡ìf ¡ì6¹¥»÷ÀäÈ´¡ìf" + cooldown;
-		    return loreAttack;
-	  }
-	  
 }

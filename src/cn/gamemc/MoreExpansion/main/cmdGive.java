@@ -7,7 +7,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 public class cmdGive implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -59,7 +58,9 @@ public class cmdGive implements CommandExecutor {
 					if ( giveInt > 0 ) {
 						if ( args[0].equalsIgnoreCase("arm1") ) {
 							if (main.instance.getConfig().getBoolean("arms.arm1.enable")) {
-								p.getInventory().addItem(new ItemStack[] { arms.arm1 });
+								for ( int x=0; x<giveInt; x++ ) {
+									p.getInventory().addItem(arms.arm1);
+								}
 								return true;
 							}
 				              p.sendMessage("§f");
@@ -70,7 +71,9 @@ public class cmdGive implements CommandExecutor {
 				        }
 						if ( args[0].equalsIgnoreCase("arm2") ) {
 							if ( main.instance.getConfig().getBoolean("arms.arm2.enable") ) {
-								p.getInventory().addItem(new ItemStack[] { arms.arm2 });
+								for ( int x=0; x<giveInt; x++ ) {
+									p.getInventory().addItem(arms.arm2);
+								}
 								return true;
 							}
 				              p.sendMessage("§f");
@@ -81,7 +84,9 @@ public class cmdGive implements CommandExecutor {
 				        }
 						if ( args[0].equalsIgnoreCase("arm3") ) {
 							if ( main.instance.getConfig().getBoolean("arms.arm3.enable") ) {
-								p.getInventory().addItem(new ItemStack[] { arms.arm3 });
+								for ( int x=0; x<giveInt; x++ ) {
+									p.getInventory().addItem(arms.arm3);
+								}
 								return true;
 							}
 				              p.sendMessage("§f");
@@ -92,7 +97,22 @@ public class cmdGive implements CommandExecutor {
 				        }
 						if ( args[0].equalsIgnoreCase("arm4") ) {
 							if  (main.instance.getConfig().getBoolean("arms.arm4.enable") ) {
-								p.getInventory().addItem(new ItemStack[] { arms.arm4 });
+								for ( int x=0; x<giveInt; x++ ) {
+									p.getInventory().addItem(arms.arm4);
+								}
+								return true;
+							}
+							p.sendMessage("§f");
+							p.sendMessage("§f   §7§l[§6§lMoreExpansion§7§l]");
+							p.sendMessage("§f   §c该物品已被禁用");
+				              p.sendMessage("§f");
+				              return true;
+				        }
+						if ( args[0].equalsIgnoreCase("arm5") ) {
+							if  (main.instance.getConfig().getBoolean("arms.arm5.enable") ) {
+								for ( int x=0; x<giveInt; x++ ) {
+									p.getInventory().addItem(arms.arm5);
+								}
 								return true;
 							}
 							p.sendMessage("§f");
