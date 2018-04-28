@@ -1,35 +1,13 @@
 Settings:
-  damageTitle: false
-  damageHologram: false
-  addFoodTitle: false
-arms:
-  arm1:
-    enable: true
-    name: '&b蓝色激光剑'
-    damage: 8
-  arm2:
-    enable: true
-    name: '&c红色激光剑'
-    damage: 8
-  arm3:
-    enable: true
-    name: '&a绿色激光剑'
-    damage: 8
-  arm4:
-    enable: true
-    name: '&e黄色激光剑'
-    damage: 8
-  arm5:
-    enable: true
-    name: '&d法至之杖'
-    damage: 3
-food:
-  food1:
-    enable: true
-    name: '&a绿苹果'
-    addFood: 2
-mobs:
-  mob1:
-    name: '&aMOB-1'
-  mob2:
-    name: '&aMOB-2'
+  Hologram:
+    damage:
+      text: false
+      item: false
+    hungry:
+      text: false
+      item: false
+  Title:
+    damage:
+      text: false
+    Hungry:
+      text: false

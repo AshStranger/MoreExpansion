@@ -6,16 +6,19 @@ import cn.gamemc.MoreExpansion.main.main;
 import java.util.List;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.inventory.ItemStack;
 
 import com.gmail.filoghost.holographicdisplays.api.Hologram;
 import com.gmail.filoghost.holographicdisplays.api.HologramsAPI;
 
 public class damage implements Listener {
+	
 	@EventHandler
 	public void onAttack(EntityDamageByEntityEvent e) {
 		// 判断施加伤害的实体类型
@@ -32,29 +35,42 @@ public class damage implements Listener {
 		        			String damageInt = s.replace("§f       §7§l[§f§l-§7§l]§f §6伤害 §f", "");
 		        			int damage = Integer.valueOf(damageInt).intValue();
 		        			e.setDamage(damage);
+		        			player.setFoodLevel(6);
 						}
 					}
 				}
 			}
-			// 弹幕击杀伤害显示
-			if ( main.instance.getConfig().getBoolean("Settings.damageTitle")==true ) {
-				if ( main.pm!=null ) {
+			// 弹幕伤害显示
+			if ( main.pm!=null ) {
+				if ( main.here.getConfig().getBoolean("Settings.Title.damage.text")==true ) {
 					buildPacket.sendTitle(player, "", "§c- §6" + e.getDamage(), 0, 10, 0);
 				}
 			}
-			// 全息击杀伤害显示
+			// 全息伤害显示
 			if ( Bukkit.getPluginManager().isPluginEnabled("HolographicDisplays") ) {
-				if ( main.instance.getConfig().getBoolean("Settings.damageHologram")==true ) {
+				if ( main.here.getConfig().getBoolean("Settings.Hologram.damage.text")==true ) {
 					Hologram damageHologram = HologramsAPI.createHologram(main.getPlugin(main.class), e.getEntity().getLocation().add(0.0D, 3D, 0.0D));
-					damageHologram.appendTextLine("§c- §6" + e.getDamage());
+					damageHologram.appendTextLine("§c§l- §6§l" + e.getDamage());
 					// 延时任务
-					  Bukkit.getScheduler().scheduleSyncDelayedTask(main.getPlugin(main.class), new Runnable() {
-						  public void run() {
-							  damageHologram.delete();
-						  }
-					  }, 10L);
+					Bukkit.getScheduler().scheduleSyncDelayedTask(main.getPlugin(main.class), new Runnable() {
+						public void run() {
+							damageHologram.delete();
+						}
+					}, 10L);
+				}else if ( main.here.getConfig().getBoolean("Settings.Hologram.damage.item")==true ) {
+					Hologram damageHologram = HologramsAPI.createHologram(main.getPlugin(main.class), e.getEntity().getLocation().add(0.0D, 3D, 0.0D));
+					damageHologram.appendTextLine("§c§l- §6§l" + e.getDamage());
+					ItemStack hologramItem = new ItemStack(Material.MAGMA_CREAM);
+					damageHologram.appendItemLine(hologramItem);
+					// 延时任务
+					Bukkit.getScheduler().scheduleSyncDelayedTask(main.getPlugin(main.class), new Runnable() {
+						public void run() {
+							damageHologram.delete();
+						}
+					}, 10L);
 				}
 			}
 		}
 	}
+	
 }

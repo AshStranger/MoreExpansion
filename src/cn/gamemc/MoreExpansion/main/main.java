@@ -18,7 +18,7 @@ public class main extends JavaPlugin {
 	
 	// 赋值
 	FileConfiguration config = getConfig();
-	public static JavaPlugin instance;
+	public static JavaPlugin here;
 	public static ProtocolManager pm;
 	
 	@Override
@@ -43,7 +43,7 @@ public class main extends JavaPlugin {
 		getLogger().info("[ - [MoreExpansion] 正常运行 - ]");
 		
 		// 赋值
-		instance = this;
+		here = this;
 		
 		// 注册
 		getServer().getPluginManager().registerEvents(new damage(), this);
@@ -53,8 +53,10 @@ public class main extends JavaPlugin {
 	    Bukkit.getPluginCommand("morexgive").setExecutor(new cmdGive());
 	    
 	    // 加载
-	    configMain.base();
-	    configMain.reloadItem();
+	    configBase.yml();
+	    configArms.yml();
+	    configMobs.yml();
+	    configFood.yml();
 	    arms.arm();
 	    mobs.mob();
 	    food.allFood();

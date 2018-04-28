@@ -7,7 +7,7 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import cn.gamemc.MoreExpansion.main.main;
+import cn.gamemc.MoreExpansion.main.configFood;
 
 public class food {
 	
@@ -15,7 +15,7 @@ public class food {
 	
 	public static void allFood() {
 	    ItemMeta food1Meta = food1.getItemMeta();
-	    food1Meta.setDisplayName(main.instance.getConfig().getString("food.food1.name"));
+	    food1Meta.setDisplayName(configFood.foodYml.getString("food.food1.name"));
 	    List<String> food1Lore = new ArrayList<String>();
 	    food1Lore.add("¡ìa¡ìf¡ìf¡ìf¡ìc¡ìa¡ì1");
 	    food1Meta.setLore(food1Lore);

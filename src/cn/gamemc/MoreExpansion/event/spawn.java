@@ -1,6 +1,7 @@
 package cn.gamemc.MoreExpansion.event;
 
 import cn.gamemc.MoreExpansion.item.mobs;
+import cn.gamemc.MoreExpansion.main.configMobs;
 import cn.gamemc.MoreExpansion.main.main;
 
 import com.gmail.filoghost.holographicdisplays.api.Hologram;
@@ -24,7 +25,7 @@ public class spawn implements Listener {
 				  
 				  // mob1
 				  // 判断
-				  if ( (e.getEntity().getCustomName() != null) && (e.getEntity().getCustomName().equals(main.instance.getConfig().getString("mobs.mob1.name").replaceAll("&", "§"))) ) {
+				  if ( (e.getEntity().getCustomName() != null) && (e.getEntity().getCustomName().equals(configMobs.mobsYml.getString("mobs.mob1.name").replaceAll("&", "§"))) ) {
 					  try {
 						  // 模型
 						  e.getEntity().getEquipment().setHelmet(mobs.mob1);
@@ -33,7 +34,7 @@ public class spawn implements Listener {
 						  // 全息显示跟随
 						  if ( Bukkit.getPluginManager().isPluginEnabled("HolographicDisplays") ) {
 							  final Hologram hologram = HologramsAPI.createHologram(main.getPlugin(main.class), e.getEntity().getLocation().add(0.0D, 2.5D, 0.0D));
-					            hologram.appendTextLine(main.instance.getConfig().getString("mobs.mob1.name").replaceAll("&", "§"));
+					            hologram.appendTextLine(configMobs.mobsYml.getString("mobs.mob1.name").replaceAll("&", "§"));
 					            new BukkitRunnable() {
 					            	public void run() {
 					            		if ( !e.getEntity().isDead() ) {
@@ -50,13 +51,13 @@ public class spawn implements Listener {
 				  }
 				  
 				  // mob2
-				  if ( (e.getEntity().getCustomName() != null) && (e.getEntity().getCustomName().equals(main.instance.getConfig().getString("mobs.mob2.name").replaceAll("&", "§"))) ) {
+				  if ( (e.getEntity().getCustomName() != null) && (e.getEntity().getCustomName().equals(configMobs.mobsYml.getString("mobs.mob2.name").replaceAll("&", "§"))) ) {
 					  try {
 						  e.getEntity().getEquipment().setHelmet(mobs.mob2);
 						  e.getEntity().addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 2147483647, 1));
 						  if ( Bukkit.getPluginManager().isPluginEnabled("HolographicDisplays") ) {
 							  final Hologram hologram = HologramsAPI.createHologram(main.getPlugin(main.class), e.getEntity().getLocation().add(0.0D, 3.5D, 0.0D));
-					            hologram.appendTextLine(main.instance.getConfig().getString("mobs.mob2.name").replaceAll("&", "§"));
+					            hologram.appendTextLine(configMobs.mobsYml.getString("mobs.mob2.name").replaceAll("&", "§"));
 					            new BukkitRunnable() {
 					            	public void run() {
 					            		if ( !e.getEntity().isDead() ) {

@@ -57,7 +57,7 @@ public class cmdGive implements CommandExecutor {
 			        }
 					if ( giveInt > 0 ) {
 						if ( args[0].equalsIgnoreCase("arm1") ) {
-							if (main.instance.getConfig().getBoolean("arms.arm1.enable")) {
+							if ( configArms.armsYml.getBoolean("arms.arm1.enable")!=false ) {
 								for ( int x=0; x<giveInt; x++ ) {
 									p.getInventory().addItem(arms.arm1);
 								}
@@ -70,7 +70,7 @@ public class cmdGive implements CommandExecutor {
 				              return true;
 				        }
 						if ( args[0].equalsIgnoreCase("arm2") ) {
-							if ( main.instance.getConfig().getBoolean("arms.arm2.enable") ) {
+							if ( configArms.armsYml.getBoolean("arms.arm2.enable")!=false ) {
 								for ( int x=0; x<giveInt; x++ ) {
 									p.getInventory().addItem(arms.arm2);
 								}
@@ -83,7 +83,7 @@ public class cmdGive implements CommandExecutor {
 				              return true;
 				        }
 						if ( args[0].equalsIgnoreCase("arm3") ) {
-							if ( main.instance.getConfig().getBoolean("arms.arm3.enable") ) {
+							if ( configArms.armsYml.getBoolean("arms.arm3.enable")!=false ) {
 								for ( int x=0; x<giveInt; x++ ) {
 									p.getInventory().addItem(arms.arm3);
 								}
@@ -96,7 +96,7 @@ public class cmdGive implements CommandExecutor {
 				              return true;
 				        }
 						if ( args[0].equalsIgnoreCase("arm4") ) {
-							if  (main.instance.getConfig().getBoolean("arms.arm4.enable") ) {
+							if ( configArms.armsYml.getBoolean("arms.arm4.enable")!=false ) {
 								for ( int x=0; x<giveInt; x++ ) {
 									p.getInventory().addItem(arms.arm4);
 								}
@@ -109,7 +109,7 @@ public class cmdGive implements CommandExecutor {
 				              return true;
 				        }
 						if ( args[0].equalsIgnoreCase("arm5") ) {
-							if  (main.instance.getConfig().getBoolean("arms.arm5.enable") ) {
+							if ( configArms.armsYml.getBoolean("arms.arm5.enable")!=false ) {
 								for ( int x=0; x<giveInt; x++ ) {
 									p.getInventory().addItem(arms.arm5);
 								}
