@@ -1,6 +1,7 @@
 package cn.gamemc.MoreExpansion.main;
 
 import cn.gamemc.MoreExpansion.item.arms;
+import cn.gamemc.MoreExpansion.item.blocks;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -118,6 +119,19 @@ public class cmdGive implements CommandExecutor {
 							p.sendMessage("§f");
 							p.sendMessage("§f   §7§l[§6§lMoreExpansion§7§l]");
 							p.sendMessage("§f   §c该物品已被禁用");
+				              p.sendMessage("§f");
+				              return true;
+				        }
+						if ( args[0].equalsIgnoreCase("block1") ) {
+							if ( configArms.armsYml.getBoolean("arms.arm1.enable")!=false ) {
+								for ( int x=0; x<giveInt; x++ ) {
+									p.getInventory().addItem(blocks.block1);
+								}
+								return true;
+							}
+				              p.sendMessage("§f");
+				              p.sendMessage("§f   §7§l[§6§lMoreExpansion§7§l]");
+				              p.sendMessage("§f   §c该方块已被禁用");
 				              p.sendMessage("§f");
 				              return true;
 				        }

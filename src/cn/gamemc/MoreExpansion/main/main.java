@@ -1,9 +1,12 @@
 package cn.gamemc.MoreExpansion.main;
 
+import cn.gamemc.MoreExpansion.event.click;
 import cn.gamemc.MoreExpansion.event.damage;
 import cn.gamemc.MoreExpansion.event.eat;
+import cn.gamemc.MoreExpansion.event.place;
 import cn.gamemc.MoreExpansion.event.spawn;
 import cn.gamemc.MoreExpansion.item.arms;
+import cn.gamemc.MoreExpansion.item.blocks;
 import cn.gamemc.MoreExpansion.item.food;
 import cn.gamemc.MoreExpansion.item.mobs;
 
@@ -49,6 +52,8 @@ public class main extends JavaPlugin {
 		getServer().getPluginManager().registerEvents(new damage(), this);
 	    getServer().getPluginManager().registerEvents(new spawn(), this);
 	    getServer().getPluginManager().registerEvents(new eat(), this);
+	    getServer().getPluginManager().registerEvents(new place(), this);
+	    getServer().getPluginManager().registerEvents(new click(), this);
 	    Bukkit.getPluginCommand("morexhelp").setExecutor(new cmdHelp());
 	    Bukkit.getPluginCommand("morexgive").setExecutor(new cmdGive());
 	    
@@ -57,9 +62,11 @@ public class main extends JavaPlugin {
 	    configArms.yml();
 	    configMobs.yml();
 	    configFood.yml();
+	    configBlocks.yml();
 	    arms.arm();
 	    mobs.mob();
 	    food.allFood();
+	    blocks.block();
 	}
 	
 	@Override
