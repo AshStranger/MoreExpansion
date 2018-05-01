@@ -12,6 +12,11 @@ public class loreBuff {
 		  return loreAttb;
 	  }
 	  
+	  public static String loreInfo() {
+		  String loreAttb = "°Ïf °Ï3°Ïl–≈œ¢ °Ïf°Ïl>";
+		  return loreAttb;
+	  }
+	  
 	  public static String loreAttack(int damage) {
 		    String loreAttack = "°Ïf       °Ï7°Ïl[°Ïf°Ïl-°Ï7°Ïl]°Ïf °Ï6…À∫¶ °Ïf" + damage;
 		    return loreAttack;

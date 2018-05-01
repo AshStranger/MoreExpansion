@@ -28,7 +28,7 @@ public class configBlocks {
         if ( !blocksYml.contains("blocks.block1.enable") ) {
         	blocksYml.set("blocks.block1.enable", true);
         }
-        if ( !blocksYml.contains("food.food1.name") ) {
+        if ( !blocksYml.contains("blocks.block1.name") ) {
         	blocksYml.set("blocks.block1.name", "&6∫œ≥…Ã®");
         }
         

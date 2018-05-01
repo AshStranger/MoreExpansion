@@ -25,7 +25,8 @@ public class place implements Listener {
 					block.setCustomNameVisible(false);
 					block.getEquipment().setHelmet(blocks.block1);
 					block.setGravity(false);
-					block.setVisible(false);
+					block.setVisible(true);
+					block.setSmall(true);
 					block.setCustomName("¡ìa¡ìf¡ìf¡ìf¡ìd¡ìa¡ì1");
 				}
 			}
