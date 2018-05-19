@@ -28,7 +28,7 @@ public class damage implements Listener {
 		if ( e.getDamager().getType().equals(EntityType.PLAYER) ) {
 			Player player = (Player)e.getDamager();
 			// 判断主手装备
-			if ( player.getEquipment().getItemInMainHand().getItemMeta() != null ) {
+			if ( player.getEquipment().getItemInMainHand().getItemMeta()!=null ) {
 				// 判断注释
 				List<String> lore = player.getEquipment().getItemInMainHand().getItemMeta().getLore();
 				if ( lore != null ) {

@@ -5,5 +5,9 @@
 	<classpathentry kind="lib" path="E:/JavaPlugin/paper1112.jar"/>
 	<classpathentry kind="lib" path="E:/JavaPlugin/HolographicDisplays-2.2.6-全息.jar"/>
 	<classpathentry kind="lib" path="E:/JavaPlugin/ProtocolLib-4.3.0-前置.jar"/>
+	<classpathentry kind="lib" path="E:/JavaPlugin/spigot1122.jar"/>
+	<classpathentry kind="lib" path="E:/JavaPlugin/spigot19.jar"/>
+	<classpathentry kind="lib" path="E:/JavaPlugin/spigot1102.jar"/>
+	<classpathentry kind="lib" path="E:/JavaPlugin/spigot194.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

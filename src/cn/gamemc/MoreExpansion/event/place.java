@@ -15,6 +15,20 @@ public class place implements Listener {
 	
 	@EventHandler
 	public void onPlace(BlockPlaceEvent e) {
+		// Á£×Ó²âÊÔ
+		//skillAll.lineParticle(e.getPlayer(), Particle.VILLAGER_HAPPY, 12);
+        // »ð¼ý¼¼ÄÜ
+		/*for (int count = 0; count < 20; count++) {
+            Vector bulletDirection = e.getPlayer().getEyeLocation().getDirection().multiply(3);
+            bulletDirection.add(new Vector(Math.random(), Math.random(), Math.random()));
+           
+            Arrow bullet = (Arrow) e.getPlayer().getWorld().spawnEntity(e.getPlayer().getEyeLocation(), EntityType.ARROW);
+           
+            bullet.setShooter(e.getPlayer());
+            bullet.setFireTicks(1000);
+            bullet.setVelocity(bulletDirection);
+        }*/
+        
 		if ( e.getPlayer().getEquipment().getItemInMainHand().hasItemMeta() && e.getPlayer().getEquipment().getItemInMainHand().getItemMeta().hasLore() ) {
 			List<String> lore = e.getPlayer().getEquipment().getItemInMainHand().getItemMeta().getLore();
 			for ( String s : lore ) {
@@ -25,7 +39,7 @@ public class place implements Listener {
 					block.setCustomNameVisible(false);
 					block.getEquipment().setHelmet(blocks.block1);
 					block.setGravity(false);
-					block.setVisible(true);
+					block.setVisible(false);
 					block.setSmall(true);
 					block.setCustomName("¡ìa¡ìf¡ìf¡ìf¡ìd¡ìa¡ì1");
 				}

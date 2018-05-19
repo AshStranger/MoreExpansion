@@ -7,6 +7,7 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import cn.gamemc.MoreExpansion.build.loreBuff;
 import cn.gamemc.MoreExpansion.main.configFood;
 
 public class food {
@@ -15,9 +16,12 @@ public class food {
 	
 	public static void allFood() {
 	    ItemMeta food1Meta = food1.getItemMeta();
-	    food1Meta.setDisplayName(configFood.foodYml.getString("food.food1.name"));
+	    food1Meta.setDisplayName(configFood.foodYml.getString("food.food1.name").replaceAll("&", "¡ì"));
 	    List<String> food1Lore = new ArrayList<String>();
 	    food1Lore.add("¡ìa¡ìf¡ìf¡ìf¡ìc¡ìa¡ì1");
+	    food1Lore.add(loreBuff.loreAttb());
+	    food1Lore.add(loreBuff.loreAddFood(configFood.foodYml.getInt("food.food1.addFood")));
+	    food1Lore.add(loreBuff.blank());
 	    food1Meta.setLore(food1Lore);
 	    food1.setItemMeta(food1Meta);
 	    

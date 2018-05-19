@@ -14,7 +14,6 @@ import cn.gamemc.MoreExpansion.main.main;
 public class buildPacket {
 
 	public static void sendTitle(Player player, String mainText, String subText,int fadeIn, int stay, int fadeOut) {
-		
 		PacketContainer mainTitle = new PacketContainer(PacketType.Play.Server.TITLE);
 		mainTitle.getTitleActions().write(0, TitleAction.TITLE);
 		mainTitle.getChatComponents().write(0, WrappedChatComponent.fromText(mainText));

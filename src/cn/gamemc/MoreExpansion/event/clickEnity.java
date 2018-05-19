@@ -1,15 +1,13 @@
 package cn.gamemc.MoreExpansion.event;
 
-import java.util.List;
-
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 
 import cn.gamemc.MoreExpansion.build.buildPacket;
+import cn.gamemc.MoreExpansion.gui.craftGui;
 import cn.gamemc.MoreExpansion.item.blocks;
-import cn.gamemc.MoreExpansion.item.gui;
 import cn.gamemc.MoreExpansion.main.configBlocks;
 import cn.gamemc.MoreExpansion.main.configTools;
 import cn.gamemc.MoreExpansion.main.main;
@@ -36,30 +34,31 @@ public class clickEnity implements Listener {
 					// 防止盔甲架被修改
 					e.setCancelled(true);
 					// 如果手有东西并且有Lore
-					if ( e.getPlayer().getEquipment().getItemInMainHand().hasItemMeta() && e.getPlayer().getEquipment().getItemInMainHand().getItemMeta().hasLore()) {
+					if ( e.getPlayer().getEquipment().getItemInMainHand().getItemMeta()!=null && e.getPlayer().getEquipment().getItemInMainHand().getItemMeta().hasLore()) {
 						// 摧毁block1
-						List<String> lore = e.getPlayer().getEquipment().getItemInMainHand().getItemMeta().getLore();
-						for ( String s : lore ) {
-							// 如果物品Lore匹配正确则进行下一步匹配
-							if ( s.equals("§a§f§f§f§e§a§1") ) {
-								// 物品名字匹配正确则摧毁block1[合成台]
-								if ( e.getPlayer().getEquipment().getItemInMainHand().getItemMeta().getDisplayName().equals(configTools.toolsYml.getString("tools.tool1.name").replaceAll("&", "§")) ) {
-									e.getRightClicked().remove();
-									e.getPlayer().getWorld().dropItem(e.getRightClicked().getLocation(), blocks.block1);
-									if ( main.pm!=null ) {
-										buildPacket.sendTitle(e.getPlayer(), "§6"+configBlocks.blocksYml.getString("blocks.block1.name").replaceAll("&", "§"), "§c已摧毁", 0, 20, 0);
-									}
-								}else {
-									// 物品名字匹配不正确则打开block1[合成台]
-									gui.openCraftGui(e.getPlayer());
-									e.getPlayer().openInventory(gui.invGui1);
+						// 如果物品Lore匹配正确则进行下一步匹配
+						if ( e.getPlayer().getEquipment().getItemInMainHand().getItemMeta().getLore().get(0)!=null && e.getPlayer().getEquipment().getItemInMainHand().getItemMeta().getLore().get(0).equals("§a§f§f§f§e§a§1") ) {
+							// 物品名字匹配正确则摧毁block1[合成台]
+							if ( e.getPlayer().getEquipment().getItemInMainHand().getItemMeta().getDisplayName().equals(configTools.toolsYml.getString("tools.tool1.name").replaceAll("&", "§")) ) {
+								e.getRightClicked().remove();
+								e.getPlayer().getWorld().dropItem(e.getRightClicked().getLocation(), blocks.block1);
+								if ( main.pm!=null ) {
+									buildPacket.sendTitle(e.getPlayer(), "§6"+configBlocks.blocksYml.getString("blocks.block1.name").replaceAll("&", "§"), "§c已摧毁", 0, 20, 0);
 								}
+							}else {
+								// 物品名字匹配不正确则打开block1[合成台]
+								craftGui.openCraftGui(e.getPlayer());
+								e.getPlayer().openInventory(craftGui.invGui);
 							}
+						}else {
+								// 如果Lore匹配不正确则打开block1[合成台]
+								craftGui.openCraftGui(e.getPlayer());
+								e.getPlayer().openInventory(craftGui.invGui);
 						}
 					}else {
 						// 没有东西或没有Lore时打开block1[合成台]
-						gui.openCraftGui(e.getPlayer());
-						e.getPlayer().openInventory(gui.invGui1);
+						craftGui.openCraftGui(e.getPlayer());
+						e.getPlayer().openInventory(craftGui.invGui);
 					}
 				}
 			}

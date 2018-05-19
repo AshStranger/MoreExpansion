@@ -9,6 +9,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import cn.gamemc.MoreExpansion.build.loreBuff;
+import cn.gamemc.MoreExpansion.main.configBlocks;
 import cn.gamemc.MoreExpansion.main.configTools;
 
 public class tools {
@@ -24,7 +25,7 @@ public class tools {
 	    tool1Lore.add(loreBuff.loreAttb());
 	    tool1Lore.add(loreBuff.loreAttack(configTools.toolsYml.getInt("tools.tool1.damage")));
 	    tool1Lore.add(loreBuff.loreInfo());
-	    tool1Lore.add("¡ìf       ¡ì7ÓÒ¼ü¿ÉÆÆ»µ "+configTools.toolsYml.getString("tools.tool1.name").replaceAll("&", "¡ì"));
+	    tool1Lore.add("¡ìf       ¡ì7ÓÒ¼ü¿ÉÆÆ»µ "+configBlocks.blocksYml.getString("blocks.block1.name").replaceAll("&", "¡ì"));
 	    tool1Lore.add(loreBuff.blank());
 	    tool1Meta.setLore(tool1Lore);
 	    tool1.setItemMeta(tool1Meta);

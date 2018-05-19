@@ -26,10 +26,13 @@ public class configFood {
         // food.yml
         // food1
         if ( !foodYml.contains("food.food1.enable") ) {
-        	foodYml.set("mobs.mob1.enable", true);
+        	foodYml.set("food.food1.enable", true);
         }
         if ( !foodYml.contains("food.food1.name") ) {
-        	foodYml.set("mobs.mob1.name", "&aÂÌÆ»¹û");
+        	foodYml.set("food.food1.name", "&aÂÌÆ»¹û");
+        }
+        if ( !foodYml.contains("food.food1.addFood") ) {
+        	foodYml.set("food.food1.addFood", 2);
         }
         
         // ±£´æÅäÖÃ
