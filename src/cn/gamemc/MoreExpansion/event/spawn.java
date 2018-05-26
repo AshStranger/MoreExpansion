@@ -67,7 +67,7 @@ public class spawn implements Listener {
 					            			cancel();
 					            		}
 					            	}
-					            }.runTaskTimer(main.getPlugin(main.class), 1L, 1L);  
+					            }.runTaskTimer(main.getPlugin(main.class), 1L, 1L);
 						  }
 					  }catch (Exception localException) {
 					  }

@@ -74,6 +74,15 @@ public class configArms {
         if ( !armsYml.contains("arms.arm5.damage") ) {
         	armsYml.set("arms.arm5.damage", 3);
         }
+        if ( !armsYml.contains("arms.arm5.spellsDamage") ) {
+        	armsYml.set("arms.arm5.spellsDamage", 5);
+        }
+        if ( !armsYml.contains("arms.arm5.spellsTime") ) {
+        	armsYml.set("arms.arm5.spellsTime", 10);
+        }
+        if ( !armsYml.contains("arms.arm5.spellsFar") ) {
+        	armsYml.set("arms.arm5.spellsFar", 12);
+        }
         
         // ±£¥Ê≈‰÷√
         // arms.yml

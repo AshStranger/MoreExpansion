@@ -24,6 +24,8 @@ public class tools {
 	    tool1Lore.add("¡ìa¡ìf¡ìf¡ìf¡ìe¡ìa¡ì1");
 	    tool1Lore.add(loreBuff.loreAttb());
 	    tool1Lore.add(loreBuff.loreAttack(configTools.toolsYml.getInt("tools.tool1.damage")));
+	    tool1Lore.add(loreBuff.loreAttackSpeed("¡ìcÂý"));
+	    tool1Lore.add("¡ìf");
 	    tool1Lore.add(loreBuff.loreInfo());
 	    tool1Lore.add("¡ìf       ¡ì7ÓÒ¼ü¿ÉÆÆ»µ "+configBlocks.blocksYml.getString("blocks.block1.name").replaceAll("&", "¡ì"));
 	    tool1Lore.add(loreBuff.blank());

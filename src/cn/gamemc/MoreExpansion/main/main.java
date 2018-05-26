@@ -1,9 +1,9 @@
 package cn.gamemc.MoreExpansion.main;
 
+import cn.gamemc.MoreExpansion.build.task;
 import cn.gamemc.MoreExpansion.event.clickEnity;
 import cn.gamemc.MoreExpansion.event.clickGui;
 import cn.gamemc.MoreExpansion.event.closeGui;
-import cn.gamemc.MoreExpansion.event.damage;
 import cn.gamemc.MoreExpansion.event.eat;
 import cn.gamemc.MoreExpansion.event.place;
 import cn.gamemc.MoreExpansion.event.spawn;
@@ -52,11 +52,11 @@ public class main extends JavaPlugin {
 			name = null;
 		}
 		if ( name == null ) {
-			getLogger().severe("  -  版本：不兼容");
+			getLogger().info("  -  版本：不兼容");
 			getLogger().info("[ - [MoreExpansion] 停止运行 - ]");
 			return;
 		}else {
-			getLogger().severe("  -  版本：兼容");
+			getLogger().info("  -  版本：兼容");
 		}
 		if ( !Bukkit.getPluginManager().isPluginEnabled("ProtocolLib") ) {
 			getLogger().info("  -  未安装插件：ProtocolLib");
@@ -78,7 +78,6 @@ public class main extends JavaPlugin {
 		here = this;
 		
 		// 注册
-		getServer().getPluginManager().registerEvents(new damage(), this);
 	    getServer().getPluginManager().registerEvents(new spawn(), this);
 	    getServer().getPluginManager().registerEvents(new eat(), this);
 	    getServer().getPluginManager().registerEvents(new place(), this);
@@ -90,6 +89,8 @@ public class main extends JavaPlugin {
 	    Bukkit.getPluginCommand("morexgive").setExecutor(new cmdGive());
 	    
 	    // 加载
+	    // 任务
+	    task.spellsTimeMap();
 	    // 配置
 	    configBase.yml();
 	    configArms.yml();
@@ -109,38 +110,6 @@ public class main extends JavaPlugin {
 	
 	@Override
 	public void onDisable() {
-		// 防止关服时GUI物品吞玩家的物品
-		/*for (Player p : Bukkit.getServer().getOnlinePlayers()) {
-			if ( p.getOpenInventory().getTitle().equals("§l合成台") ) {
-				if ( p.getOpenInventory().getTopInventory().getItem(11)!=null ) {
-					p.getPlayer().getInventory().addItem(p.getOpenInventory().getTopInventory().getItem(11));
-				}
-				if ( p.getOpenInventory().getTopInventory().getItem(12)!=null ) {
-					p.getPlayer().getInventory().addItem(p.getOpenInventory().getTopInventory().getItem(12));
-				}
-				if ( p.getOpenInventory().getTopInventory().getItem(13)!=null ) {
-					p.getPlayer().getInventory().addItem(p.getOpenInventory().getTopInventory().getItem(13));
-				}
-				if ( p.getOpenInventory().getTopInventory().getItem(20)!=null ) {
-					p.getPlayer().getInventory().addItem(p.getOpenInventory().getTopInventory().getItem(20));
-				}
-				if ( p.getOpenInventory().getTopInventory().getItem(21)!=null ) {
-					p.getPlayer().getInventory().addItem(p.getOpenInventory().getTopInventory().getItem(21));
-				}
-				if ( p.getOpenInventory().getTopInventory().getItem(22)!=null ) {
-					p.getPlayer().getInventory().addItem(p.getOpenInventory().getTopInventory().getItem(22));
-				}
-				if ( p.getOpenInventory().getTopInventory().getItem(29)!=null ) {
-					p.getPlayer().getInventory().addItem(p.getOpenInventory().getTopInventory().getItem(29));
-				}
-				if ( p.getOpenInventory().getTopInventory().getItem(30)!=null ) {
-					p.getPlayer().getInventory().addItem(p.getOpenInventory().getTopInventory().getItem(30));
-				}
-				if ( p.getOpenInventory().getTopInventory().getItem(31)!=null ) {
-					p.getPlayer().getInventory().addItem(p.getOpenInventory().getTopInventory().getItem(31));
-				}
-			}
-        }*/
 		getLogger().info("[MoreExpansion] 已关闭");
 	}
 	
