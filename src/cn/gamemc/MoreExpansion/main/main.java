@@ -92,7 +92,6 @@ public class main extends JavaPlugin {
 	    // »ŒŒÒ
 	    task.spellsTimeMap();
 	    // ≈‰÷√
-	    configBase.yml();
 	    configArms.yml();
 	    configMobs.yml();
 	    configFood.yml();
